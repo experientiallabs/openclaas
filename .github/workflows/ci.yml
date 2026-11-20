@@ -23,6 +23,7 @@ jobs:
         uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78
         with:
           version: 0.13.4
+          checksum: 2b428396f12572d4429cf210ca234dd599a33b3af0958a4d5ed569d63e3f344f
 
       - name: Install dependencies
         run: uv sync --locked --extra dev --extra local --extra tinker
@@ -60,6 +61,7 @@ jobs:
         uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78
         with:
           version: 0.13.4
+          checksum: 2b428396f12572d4429cf210ca234dd599a33b3af0958a4d5ed569d63e3f344f
 
       - name: Install dependencies
         run: uv sync --locked --extra dev --extra tinker
