@@ -201,3 +201,7 @@ installs. This prepares source only and does not launch training or deploy.
 Setuptools cannot reach its patched version while the retained vLLM release
 requires setuptools below 81; that change belongs with a tested model-stack
 upgrade, along with remaining model-framework advisories.
+
+Filelock also stays at its prior pin because security-patched 4.x releases can
+hang the retained Hugging Face Hub downloader on filesystems without flock and
+pre-existing lock markers. This requires a compatible upstream Hub release.
