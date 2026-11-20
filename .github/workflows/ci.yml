@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -20,12 +20,12 @@ jobs:
           python-version: '3.11'
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@v4
+        uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9
         with:
-          version: latest
+          version: 0.13.4
 
       - name: Install dependencies
-        run: uv sync --extra dev --extra local --extra tinker
+        run: uv sync --locked --extra dev --extra local --extra tinker
 
       - name: Ruff check
         run: uv run ruff check claas/ tests/
@@ -49,7 +49,7 @@ jobs:
           df -h /
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -57,12 +57,12 @@ jobs:
           python-version: '3.11'
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@v4
+        uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9
         with:
-          version: latest
+          version: 0.13.4
 
       - name: Install dependencies
-        run: uv sync --extra dev --extra tinker
+        run: uv sync --locked --extra dev --extra tinker
 
       - name: Run integration tests
         env:

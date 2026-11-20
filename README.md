@@ -185,3 +185,19 @@ The eval dashboard at `/v1/eval` displays results from running the eval harness 
 ## License
 
 MIT
+
+## Dependency security updates
+
+The committed lock includes patched HTTP, authentication, DNS, image, parser and
+configuration packages, with a seven-day release cooldown. FastAPI and Starlette
+are updated together so their supported dependency ranges remain compatible.
+The model stack (Torch, vLLM, Transformers, PEFT and Hugging Face Hub) stays pinned.
+The existing CPU unit suite checks API and local training behavior; GPU and live
+Tinker tests remain separately selected integration work.
+
+Use `uv sync --locked --extra dev --extra local --extra tinker`, then run the
+existing Ruff, ty and pytest checks. CI uses the fixed uv version and locked
+installs. This prepares source only and does not launch training or deploy.
+Setuptools cannot reach its patched version while the retained vLLM release
+requires setuptools below 81; that change belongs with a tested model-stack
+upgrade, along with remaining model-framework advisories.
